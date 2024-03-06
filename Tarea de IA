@@ -1,0 +1,20 @@
+class Estudiante:
+    def __init__(self, nombre, calificaciones, asistencia):
+        self.nombre = nombre
+        self.calificaciones = calificaciones
+        self.asistencia = asistencia
+
+    def promedio(self):
+        return sum(self.calificaciones) / len(self.calificaciones)
+
+    def evaluar(self):
+        promedio_calificaciones = self.promedio()
+        if promedio_calificaciones >= 6 and self.asistencia >= 0.8:
+            return f"{self.nombre} ha aprobado."
+        else:
+            sugerencia = "Sugerencia: "
+            if promedio_calificaciones < 6:
+                sugerencia += "Mejorar las calificaciones."
+            if self.asistencia < 0.8:
+                sugerencia += "Mejorar la asistencia."
+            return f"{self.nombre} ha reprobado. {sugerencia}"
